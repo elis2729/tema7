@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+
+<body>
+
+	<p>Længde på flyrejse i timer</p>
+	<input type="text" id="tid">
+	<button>Klik og beregn CO2 udslep, kik i konsollen</button>
+
+	<script>
+		document.querySelector("button").addEventListener("click", buttonClick);
+
+		function buttonClick() {
+
+			let tid = document.querySelector("#tid").value;
+			let co2 = 109;
+			let u = udslip(tid, co2);
+
+			let resultat;
+			if (isNaN(u)) {
+				resultat = "det er ikke et tal, prøv igen";
+			} else if (u <= 0) {
+				resultat = "arealet er mindre end nul, prøv igen"
+			} else {
+				resultat = `CO2 udslippet er ${u}`;
+			}
+
+			console.log(resultat);
+
+		}
+
+		function udslip(t, c) {
+			return t * c;
+		}
+
+	</script>
+</body>
+
+</html>
