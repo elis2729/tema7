@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+
+<body>
+
+	<p>Overholder du den gyldne regel?</p>
+	<p>Din alder</p>
+	<input type="text" id="alder1">
+	<p>Din dates alder</p>
+	<input type="text" id="alder2">
+	<button>Se svaret her, kik i konsollen</button>
+
+	<script>
+		document.querySelector("button").addEventListener("click", buttonClick);
+
+		function buttonClick() {
+
+			let alderDig = document.querySelector("#alder1").value;
+			let alderDate = document.querySelector("#alder2").value;
+
+			let minimumDate = alderDig * 0.5 + 7;
+			let minimumDig = alderDate * 0.5 + 7;
+
+
+			let resultat;
+			if (alderDate < 15 || alderDig < 15) {
+				resultat = "Loven tillader ikke denne slags dates";
+			} else if (minimumDate <= alderDate && minimumDig <= alderDig) {
+				resultat = "Tillykke! den gyldne regel er opfyldt, god date";
+			} else if (minimumDate > alderDate) {
+				resultat = "Desværre, din partner er for ung"
+			} else if (minimumDig > alderDig) {
+				resultat = "Desværre, din partner er for gammel"
+			}
+			console.log(resultat);
+
+		}
+
+		// function udslip(t, c) {
+		// return t * c;
+		// }
+
+	</script>
+</body>
+
+</html>
