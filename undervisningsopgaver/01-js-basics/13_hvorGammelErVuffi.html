@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+
+<body>
+
+	<p>Hvor gammmel er din hund i menneskeår?</p>
+	<p>Hundens alder</p>
+	<input type="text" id="alder">
+	<button>Se det i menneskeår, kik i konsollen</button>
+
+	<script>
+		document.querySelector("button").addEventListener("click", buttonClick);
+
+		function buttonClick() {
+
+			let alder = document.querySelector("#alder").value;
+
+			let gamle = alder * 7;
+			let nye = 16 * Math.log(alder) + 31;
+
+			console.log(gamle);
+			console.log(nye);
+		}
+
+	</script>
+</body>
+
+</html>
