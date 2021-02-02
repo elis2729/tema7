@@ -25,9 +25,8 @@
 			let alderDig = document.querySelector("#alder1").value;
 			let alderDate = document.querySelector("#alder2").value;
 
-			let minimumDate = alderDig * 0.5 + 7;
-			let minimumDig = alderDate * 0.5 + 7;
-
+			let minimumDate = Math.round(alderDig * 0.5 + 7);
+			let minimumDig = Math.round(alderDate * 0.5 + 7);
 
 			let resultat;
 			if (alderDate < 15 || alderDig < 15) {
@@ -42,10 +41,6 @@
 			console.log(resultat);
 
 		}
-
-		// function udslip(t, c) {
-		// return t * c;
-		// }
 
 	</script>
 </body>
