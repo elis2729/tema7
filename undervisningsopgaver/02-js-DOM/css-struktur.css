@@ -11,28 +11,28 @@ img {
 
 header {
 	text-align: center;
-	border: 2px solid #b7b7b7;
+	border: 1px solid #b7b7b7;
 	padding: 10px;
 }
 
 section {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-gap: 20px;
 
 }
 
 article {
-	border: 2px solid #b7b7b7;
+	border: 1px solid #b7b7b7;
 }
 
 main {
-	max-width: 1200px;
+	max-width: 90%;
 	margin: 0 auto;
 }
 
 footer {
 	text-align: center;
-	border: 2px solid #b7b7b7;
+	border: 1px solid #b7b7b7;
 	padding: 20px;
 }
