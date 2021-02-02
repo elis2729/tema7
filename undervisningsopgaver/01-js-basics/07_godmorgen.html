@@ -11,20 +11,19 @@
 <body>
 
 	<script>
-		let besked;
-		let tid = new Date().getHours();
+		let time = new Date().getHours();
+//		const time = 11;
+		console.log("time", time);
 
-		if (tid >= 5 && tid < 10) {
-			besked = "Godmorgen";
-		} else if (hour >= 10 && tid < 18) {
-			besked = "Goddag"
-		} else if (hour >= 18 && tid < 24) {
-			besked = "Godaften";
+		if (time < 5) {
+			console.log("Godnat");
+		} else if (time < 10) {
+			console.log("Godmorgen");
+		} else if (time < 18) {
+			console.log("Goddag");
 		} else {
-			besked = "Godnat";
+			besked = "Godaften";
 		}
-
-		console.log(besked);
 
 	</script>
 </body>
