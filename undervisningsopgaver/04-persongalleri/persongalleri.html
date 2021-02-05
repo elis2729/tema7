@@ -9,8 +9,23 @@
 </head>
 
 <body>
+
+	<main></main>
+
+	<template>
+		<article>
+			<h2></h2>
+			<img src="" alt="">
+			<ul></ul>
+		</article>
+	</template>
+
+
+
 	<script>
 		const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri"
+
+		const medieurl = "https://persongalleri-5d3e.restdb.io/media/"
 
 		const options = {
 			headers: {
@@ -24,8 +39,20 @@
 			vis(json);
 		}
 
+		const main = document.querySelector("main");
+		const template = document.querySelector("template").content;
+
+
 		function vis(json) {
 			console.log(json);
+			json.forEach(person => {
+				const klon = template.cloneNode(true);
+
+				const navn = `${person.fornavn} ${person.efternavn}`;
+				klon.querySelector("h2").textContent = navn;
+				klon.querySelector("img").src = medieurl + person.billede;
+				main.appendChild(klon);
+			});
 		}
 
 		hentData();
