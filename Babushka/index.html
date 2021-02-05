@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Babsucha</title>
+	<link rel="stylesheet" href="">
+
+
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font-family: arial, sans-serif;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		main {
+			max-width: 60vw;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			grid-gap: 10px;
+		}
+
+		article {
+			border: 1px solid #d0d0d0;
+			background-color: #ebebeb;
+		}
+
+		h2 {
+			font-size: 19px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+
+		.text_indhold {
+			padding: 10px;
+		}
+
+		.kort_info {
+			margin: 10px 0px;
+		}
+
+		.ret_billede {
+			width: 100%;
+			max-height: 145px;
+			object-fit: cover;
+		}
+	</style>
+
+
+</head>
+
+<body>
+
+	<main></main>
+
+	<template>
+		<article>
+			<img class="ret_billede" src="" alt="">
+			<div class="text_indhold">
+				<h2></h2>
+				<p class="kort_info"></p>
+				<p class="pris"></p>
+			</div>
+		</article>
+	</template>
+
+
+
+	<script>
+		const url = "https://babushka-dd8a.restdb.io/rest/menu"
+
+		const medieurl = "https://babushka-dd8a.restdb.io/media/"
+
+		const options = {
+			headers: {
+				'x-apikey': "600ec2fb1346a1524ff12de4"
+			}
+		};
+
+		async function hentData() {
+			const resspons = await fetch(url, options);
+			const json = await resspons.json();
+			vis(json);
+		}
+
+		const main = document.querySelector("main");
+		const template = document.querySelector("template").content;
+
+
+		function vis(json) {
+			console.log(json);
+			json.forEach(ret => {
+				const klon = template.cloneNode(true);
+
+				klon.querySelector("img").src = medieurl + ret.billede;
+				klon.querySelector("div h2").textContent = ret.navn;
+				klon.querySelector("div .kort_info").textContent = ret.kortbeskrivelse;
+				klon.querySelector("div .pris").textContent = `Pris: ${ret.pris} kr.`;
+				main.appendChild(klon);
+			});
+		}
+
+		hentData();
+	</script>
+</body></html>
