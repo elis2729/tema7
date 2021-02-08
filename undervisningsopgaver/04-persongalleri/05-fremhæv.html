@@ -53,12 +53,18 @@
 		.valgt {
 			background-color: skyblue;
 		}
+
+		h1 {
+			text-align: center;
+		}
 	</style>
 
 
 </head>
 
 <body>
+
+	<h1>Alle</h1>
 
 	<nav>
 		<button data-troende="alle" class="valgt">Alle</button>
@@ -84,6 +90,8 @@
 
 		const medieurl = "https://persongalleri-5d3e.restdb.io/media/"
 
+		const header = document.querySelector("h1");
+
 		const options = {
 			headers: {
 				'x-apikey': "600fe9211346a1524ff12e31"
@@ -102,6 +110,9 @@
 
 		function filtrerPersoner() {
 			filter = this.dataset.troende;
+			header.textContent = this.textContent;
+			document.querySelector(".valgt").classList.remove("valgt");
+			this.classList.add("valgt");
 			visPersoner();
 		}
 
