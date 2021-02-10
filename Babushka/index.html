@@ -22,6 +22,16 @@
 			height: auto;
 		}
 
+		.img {
+			width: 100%;
+			min-height: 300px;
+			background-image: url(img/banner.jpg);
+			background-size: cover;
+			max-width: none;
+			background-position: 50%;
+			margin-bottom: 45px;
+		}
+
 		body {
 			background-color: antiquewhite;
 		}
@@ -111,6 +121,9 @@
 			visibility: hidden;
 		}
 
+		footer a {
+			padding: 10px;
+		}
 	</style>
 
 
@@ -120,8 +133,8 @@
 
 	<header>
 
-		<img src="img/banner.jpg" alt="banner">
-		<a class="link" href='https://www.freepik.com/photos/wood' target="_blank">Wood photo created by kjpargeter - www.freepik.com</a>
+		<div class="img"></div>
+
 
 		<div>
 			<h1>Alle</h1>
@@ -151,6 +164,10 @@
 
 	<main>
 	</main>
+
+	<footer>
+		<a class="link" href='https://www.freepik.com/photos/wood' target="_blank">Wood photo created by kjpargeter - www.freepik.com</a>
+	</footer>
 
 
 	<template>
@@ -252,8 +269,5 @@
 		//				}
 		//			})
 		//		}
-
 	</script>
-</body>
-
-</html>
+</body></html>
