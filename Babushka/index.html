@@ -45,7 +45,7 @@
 		}
 
 		article {
-			border: 1px solid #d0d0d0;
+			/*			border: 1px solid #b99775;*/
 			background-color: #ebbd7d;
 		}
 
@@ -117,10 +117,6 @@
 
 		}
 
-		.hide {
-			visibility: hidden;
-		}
-
 		footer a {
 			padding: 10px;
 		}
@@ -150,17 +146,6 @@
 		</div>
 
 	</header>
-
-	<div id="detaljer" class="hide">
-		<div class="boks">
-			<img src="" alt="">
-			<div class="text">
-				<h3></h3>
-				<p class="lang_info"></p>
-				<p class="pris"></p>
-			</div>
-		</div>
-	</div>
 
 	<main>
 	</main>
@@ -240,10 +225,7 @@
 					klon.querySelector("div .pris").textContent = `Pris: ${ret.pris} kr.`;
 
 					//gå til single view
-					//klon.querySelector(".article").addEventListener("click", () => visDetaljer(ret));
-
-					//popop vindue
-					//					klon.querySelector(".article").addEventListener("click", () => visDetaljer(ret));
+					klon.querySelector(".article").addEventListener("click", () => visDetaljer(ret));
 
 					main.appendChild(klon);
 
@@ -255,9 +237,9 @@
 			});
 		}
 
-		//		function visDetaljer(hvem) {
-		//			location.href = `detalje.html?id=${hvem._id}`;
-		//		}
+		function visDetaljer(hvem) {
+			location.href = `detalje.html?id=${hvem._id}`;
+		}
 
 		//		function visDetaljer(hvilken) {
 		//			console.log("visDetaljer");

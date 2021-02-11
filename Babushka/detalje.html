@@ -14,9 +14,39 @@
 			font-family: arial, sans-serif;
 		}
 
-		img {
-			width: 50%;
+		body {
+			background-color: antiquewhite;
 		}
+
+		img {
+			width: 100%;
+		}
+
+		.img {
+			width: 100%;
+			min-height: 300px;
+			background-image: url(img/banner.jpg);
+			background-size: cover;
+			max-width: none;
+			background-position: 50%;
+			margin-bottom: 45px;
+		}
+
+		main {
+			max-width: 70vw;
+			margin: 0 auto;
+		}
+
+		article {
+			background-color: white;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			margin: 20px 0;
+			grid-gap: 15px;
+			padding: 30px;
+		}
+
+		.article {}
 
 
 		h2 {
@@ -25,6 +55,14 @@
 
 		p {
 			font-size: 14px;
+			margin: 15px 0;
+		}
+
+		button {
+			padding: 5px;
+			background-color: white;
+			border: none;
+			cursor: pointer;
 		}
 
 	</style>
@@ -35,15 +73,24 @@
 
 <body>
 
-	<article class="article">
-		<img class="ret_billede" src="" alt="">
-		<div class="text_indhold">
-			<h2></h2>
-			<p class="kort_info"></p>
-			<p class="pris"></p>
-		</div>
+	<header>
+
+		<div class="img"></div>
+
+	</header>
+
+	<main>
 		<button>Tilbage</button>
-	</article>
+		<article class="article">
+			<img class="ret_billede" src="" alt="">
+			<div class="text_indhold">
+				<h2></h2>
+				<p class="langt_indhold"></p>
+				<p class="pris"></p>
+			</div>
+
+		</article>
+	</main>
 
 
 
@@ -76,8 +123,9 @@
 			document.querySelector("img").src = medieurl + ret.billede;
 			document.querySelector("img").alt = ret.navn;
 			document.querySelector("div h2").textContent = ret.navn;
-			document.querySelector("div .kort_info").textContent = ret.langbeskrivelse;
+			document.querySelector("div .langt_indhold").textContent = `Beskrivelse: ${ret.langbeskrivelse}`;
 			document.querySelector("div .pris").textContent = `Pris: ${ret.pris} kr.`;
+			document.querySelector("button").addEventListener("click", tilbageTilPersongalleri);
 
 		}
 
